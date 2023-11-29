@@ -1,13 +1,19 @@
-<div class="card text-center">
+<div class="card text-center mb-3">
     <div class="card-header">
-        Omar Adrian Acosta Santiago
+        <% if(post.anonym !== true){ %>
+            <p class="mb-0"><b><%= post.owner %> dice</b></p>
+        <% } else { %>
+            <p class="mb-0"><b>Anónimo dice</b></p>
+        <% } %>
     </div>
     <div class="card-body">
-        <h5 class="card-title">Titulo de la publicacion</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, vitae repellat? At blanditiis quidem voluptatum dolorum dolores rem molestiae harum!</p>
-        <a href="#" class="btn btn-primary">Ir a la platica</a>
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.description %></p>
+        <!-- Puedes mostrar otros detalles del post aquí -->
+        <!-- <a href="#" class="btn btn-primary">Ir a la plática</a> -->
     </div>
     <div class="card-footer text-body-secondary">
-        Hace unos minutos
+        <!-- Muestra la fecha del post, podrías necesitar formatearla según tus necesidades -->
+        <%= post.date %>
     </div>
 </div>

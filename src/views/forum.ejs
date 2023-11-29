@@ -18,7 +18,13 @@
         </button>
     <% } %>
     <div class="posts">
-        <%- include('include/post.ejs') %>
+      <% if(Array.isArray(locals.posts) && locals.posts.length > 0) { %>
+        <% locals.posts.forEach(post => { %>
+          <%- include('include/post.ejs', { post: post }) %>
+        <% }); %>
+      <% } else { %>
+        <p>No hay publicaciones disponibles.</p>
+      <% } %>
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
