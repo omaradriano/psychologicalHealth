@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="custom.css">
+    <title>Signup</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <%- include('include/header.ejs') %>
+
+    <% if (locals.error) { %>
+        <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+              <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>
+    <% } %>
+    
+        <div class="form">
+            <form action="/signup" method="post">
+                <!-- <div class="mb-3">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required name="email" pattern="^l(b|c)?[0-9]{8}@chihuahua2.tecnm.mx">
+                    <div id="emailHelp" class="form-text">No compartiremos tus datos con nadie mas. :)</div>
+                </div> -->
+                <div class="mb-3">
+                    <label for="nControl" class="form-label">Numero de control</label>
+                    <input type="text" class="form-control" id="nControl" name="n_control" pattern="[0-9]{8}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="name" required name="name" value="Omar">
+                </div>
+                <div class="mb-3">
+                    <label for="tel" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="tel" required name="tel" value="1234567">
+                </div>
+                <div class="mb-3">
+                    <label for="career" class="form-label">Carrera</label>
+                    <select class="form-select" aria-label="Default select example" id="career" required name="career">
+                        <option selected>Selecciona tu carrera</option>
+                        <option value="Ingenieria en sistemas computacionales">Ingenieria en sistemas computacionales
+                        </option>
+                        <option value="Ingenieria industrial">Ingenieria industrial</option>
+                        <option value="Arquitectura">Arquitectura</option>
+                        <option value="Ingenieria informática">Ingenieria informática</option>
+                        <option value="Arquitectura">Arquitectura</option>
+                        <option value="Ingenieria en gestion empresarial">Ingenieria en gestion empresarial</option>
+                        <option value="Licenciatura en administración">Licenciatura en administración</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="age" required name="age" value="23">
+                </div>
+                <div class="mb-3">
+                    <label for="pass" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="pass" required name="password"
+                        value="Iliketurtles01" pattern="^(?=.*[0-9])(?=.*[A-Z]).{8,}$">
+                </div>
+                <div class="mb-3">
+                    <label for="repeatPass" class="form-label">Confirma contraseña</label>
+                    <input type="password" class="form-control" id="repeatPass" required name="repeatPass"
+                        value="Iliketurtles01">
+                </div>
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
+        </div>
+
+        <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
