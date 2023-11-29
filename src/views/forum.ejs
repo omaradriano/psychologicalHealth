@@ -10,10 +10,60 @@
     <title>Foro</title>
 </head>
 <body>
-    <%- include('include/header.ejs')  %>
+    <%- include('include/header.ejs', {userdata: locals.user})  %>
 
+    <% if(locals.user) {%>
+        <button type="button" class="btn btn-addPost btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Agregar post
+        </button>
+    <% } %>
     <div class="posts">
         <%- include('include/post.ejs') %>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar publicacion</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="/forum/post" method="post">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Titulo</label>
+                  <input type="text" class="form-control" id="title"name="title" required>
+                </div>
+                <div class="mb-3">
+                  <label for="extrainfo" class="form-label">Informacion adicional</label>
+                  <input type="text" class="form-control" id="extrainfo" aria-describedby="extrainfohelp" name="description">
+                  <div id="extrainfohelp" class="form-text">Agrega informacion adicional de tu problema (Opcional)</div>
+                </div>
+                <div class="mb-3 form-check border-bottom pb-2">
+                  <input type="checkbox" class="form-check-input" id="anonymState" name="anonym">
+                  <label class="form-check-label" for="anonymState" aria-describedby="anonymhelp">Publicar de forma anonima</label>
+                  <div id="anonymhelp" class="form-text">No mostraremos tu nombre en el post</div>
+                </div>
+                <input type="radio" class="btn-check" id="success-outlined" autocomplete="off" name="mode" value="offer">
+                <label class="btn btn-outline-success" for="success-outlined">Ofrezo ayuda</label>
+                <input type="radio" class="btn-check" id="danger-outlined" autocomplete="off" name="mode" value="need">
+                <label class="btn btn-outline-danger" for="danger-outlined">Necesito ayuda</label>
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                <div class="mb-3 form-check border-bottom pb-2 pt-2">
+                  <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                  <label class="form-check-label" for="terms" aria-describedby="termshelp">Acepto las condiciones descritas</label>
+                  <div id="termshelp" class="form-text">Soy consciente de que los administradores tienen informacion de mi identidad y estoy de acuerdo con ello. Sin embargo no se hara difusion de la misma de ninguna manera.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Publicar</button>
+              </form>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div> -->
+          </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ app.use(session({
     saveUninitialized: true,
     resave: true,
     cookie: {
-        maxAge: 60000,
+        maxAge: 36000000,
     }
 }));
 
@@ -50,7 +50,6 @@ app.get('/', (req, res) => {
         console.log('No existe una sesion')
         res.render('index.ejs')
     }
-
 })
 
 app.get('/logout', (req, res) => {
@@ -66,7 +65,6 @@ app.get('/logout', (req, res) => {
         });
     }
 })
-
 
 //SIGNUP
 app.use('/signup', signup)

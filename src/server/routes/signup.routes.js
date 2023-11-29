@@ -26,7 +26,7 @@ signup.post('/', async (req, res) => {
     const renderData = req.body
 
     const data = await User.find({ n_control: n_control })
-    console.log(data)
+    // console.log(data)
     if(data.length !== 0){
         if(data[0].n_control === parseInt(n_control)){
             console.log('El usuario ya existe')
