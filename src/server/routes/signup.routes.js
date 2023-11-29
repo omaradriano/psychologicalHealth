@@ -1,6 +1,6 @@
 import { Router } from 'express'
 // import { Mongoose } from 'mongoose'
-import User from '../../db/userSchema.js';
+import User from '../../db/user.schema.js';
 import mongoose from 'mongoose';
 
 // Obtén los datos de conexión desde las variables de entorno o configúralos directamente aquí.

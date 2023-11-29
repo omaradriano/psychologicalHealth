@@ -1,7 +1,6 @@
 import { Router } from 'express'
-// import { Mongoose } from 'mongoose'
 import mongoose from 'mongoose';
-import Post from '../../db/postSchema.js';
+import Post from '../../db/post.schema.js';
 
 // Obtén los datos de conexión desde las variables de entorno o configúralos directamente aquí.
 const MONGODB_URI = 'mongodb://127.0.0.1:27017/psychologicalHealth';
@@ -15,12 +14,12 @@ forum.get('/', async (req, res) => {
 
     try {
         const posts = await Post.find({})
-        console.log(posts)
+        // console.log(posts)
         if (req.session.user) {
             const data = req.session.user[0]
             res.render('forum.ejs', { user: data, posts: posts })
         } else {
-            console.log('No existe una sesion')
+            console.log('No hay una sesion activa')
             res.render('forum.ejs', { posts: posts })
         }
     } catch (error) {
@@ -30,7 +29,7 @@ forum.get('/', async (req, res) => {
 
 forum.post('/post', async (req, res) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     const { title, description, anonym, mode } = req.body
 
     try {

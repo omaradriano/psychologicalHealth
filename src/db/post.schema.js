@@ -8,7 +8,6 @@ const postSchema = new mongoose.Schema({
     mode: String, //Muestra si necesita ayuda o la ofrece
     anonym: Boolean, //Establece si se muestra el nombre real de la persona
     comments: Array
-
 });
 
 const Post = mongoose.model('posts', postSchema);

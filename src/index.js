@@ -9,6 +9,7 @@ import session from 'express-session'
 import signup from './server/routes/signup.routes.js';
 import login from './server/routes/login.routes.js';
 import forum from './server/routes/forum.routes.js';
+import appointments from './server/routes/appointments.routes.js';
 
 //Importar dotenv para variables de entorno
 import dotenv from 'dotenv'
@@ -47,7 +48,7 @@ app.get('/', (req, res) => {
         const data = req.session.user[0]
         res.render('index.ejs', { user: data })
     } else {
-        console.log('No existe una sesion')
+        console.log('No hay una sesion activa')
         res.render('index.ejs')
     }
 })
@@ -72,6 +73,8 @@ app.use('/signup', signup)
 app.use('/login', login)
 //FORUM
 app.use('/forum', forum)
+//APPOINTMENTS
+app.use('/appointments', appointments)
 
 //Static files
 app.use('/', express.static(path.join(__dirname, 'css'))); //Call css
