@@ -24,29 +24,33 @@ forum.get('/', async (req, res) => {
             res.render('forum.ejs', { posts: posts })
         }
     } catch (error) {
-        
+        console.log(error)
     }
 })
 
-forum.post('/post', (req, res) => {
+forum.post('/post', async (req, res) => {
 
     console.log(req.body)
     const { title, description, anonym, mode } = req.body
 
-    if (req.session.user) {
-        const post = new Post({
-            title: title,
-            description: description,
-            date: new Date(),
-            owner: req.session.user[0].n_control,
-            anonym: anonym === 'on' ? true : false,
-            mode: mode,
-            comments: []
-        });
+    try {
+        if (req.session.user) {
+            const post = new Post({
+                title: title,
+                description: description,
+                date: new Date(),
+                owner: req.session.user[0].n_control,
+                anonym: anonym === 'on' ? true : false,
+                mode: mode,
+                comments: []
+            });
 
-        console.log(`Post agregado por ${req.session.user[0].n_control}`)
-        post.save();
-        res.redirect('/forum');
+            console.log(`Post agregado por ${req.session.user[0].n_control}`)
+            await post.save();
+            res.redirect('/forum');
+        }
+    } catch (error) {
+        console.log(error)
     }
     // res.send('Se ha publicado un post')
 })

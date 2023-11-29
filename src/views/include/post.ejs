@@ -1,5 +1,11 @@
 <div class="card text-center mb-3">
-    <div class="card-header">
+
+    <% if(post.mode === 'need'){ %>
+        <div class="card-header bg-danger">
+
+    <% }else if(post.mode === 'offer'){ %>
+        <div class="card-header bg-success">
+    <% } %>
         <% if(post.anonym !== true){ %>
             <p class="mb-0"><b><%= post.owner %> dice</b></p>
         <% } else { %>
@@ -14,6 +20,6 @@
     </div>
     <div class="card-footer text-body-secondary">
         <!-- Muestra la fecha del post, podrías necesitar formatearla según tus necesidades -->
-        <%= post.date %>
+        <p><%= post.date.getHours() %>:<%= post.date.getMinutes() %>-<%= post.date.getDate() %>/<%= post.date.getMonth() %></p>
     </div>
 </div>
