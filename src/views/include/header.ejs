@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar--custom sticky-top navbar-expand-lg bg-body-tertiary bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Salud Mental</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,15 +9,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <% if(locals.userdata){ %>
                     <li class="nav-item">
-                            <a class="nav-link" href="#"><%= locals.userdata.n_control %></a>
+                            <a class="nav-link " href="#"><%= locals.userdata.n_control %></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Más
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Agendar una cita</a></li>
+                            <li><a class="dropdown-item" href="/appointments">Agendar una cita</a></li>
                             <li><a class="dropdown-item" href="#">Recursos de orientación</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -27,14 +27,17 @@
                     </li>
                 <% }else{ %>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/signup">Registro</a>
+                        <a class="nav-link active " aria-current="page" href="/signup">Registro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Iniciar sesión</a>
+                        <a class="nav-link " href="/login">Iniciar sesión</a>
                     </li>
                 <% } %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/forum">Foro</a>
+                    <a class="nav-link " href="/forum">Foro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/about">¿Quienes somos?</a>
                 </li>
                 
             </ul>

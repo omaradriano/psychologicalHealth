@@ -79,7 +79,7 @@ app.use('/appointments', appointments)
 //Static files
 app.use('/', express.static(path.join(__dirname, 'css'))); //Call css
 app.use('/', express.static(path.join(__dirname, 'bootstrap'))); //Call bootstrap
-app.use('/', express.static(path.join(__dirname, 'imgs'))); //Call bootstrap
+app.use('/', express.static(path.join(__dirname, 'imgs'))); //Carpeta de imágenes
 
 //Run server
 app.listen(port, () => {

@@ -15,13 +15,25 @@ a:visited {
 
 :root {
     --bg-color: #bfc0c0;
+    --navbar-color: #f0f7fd9d;
 }
 
 body {
     min-height: 100vh;
+    min-width: 400px;
+
+    background-color: #fff;
 }
 
-/* Restar styles */
+.bghome {
+    /* position: absolute;
+    top: 0; */
+    background: url('bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Restart styles */
 h4 {
     margin: 0;
     padding: 0;
@@ -46,27 +58,33 @@ h4 {
 
 /* ----------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
-/* -----------------------------------------ROOT-------------------------------------------- */
+/* -----------------------------------------MAIN-------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
 
 .main {
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100vw;
-    /* background-color: orange; */
+    justify-content: center;
+    flex-direction: column;
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    background: url('bg.jpg');
+    background-position: -300px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.main > h1 {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 1;
-    padding: 10px;
+.main>h1,
+.main>h3 {
+    position: relative;
+    top: -50px;
     color: white;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    font-weight: 900;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
+
 
 .carousel {
     position: relative;
@@ -76,18 +94,84 @@ h4 {
 
 /* ----------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
-/* -----------------------------------------NAV-------------------------------------------- */
+/* ----------------------------------SPECIALIST SECTION------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
 
-.nav--custom {
+.specialistSection {
+    display: grid;
+
+    width: 100%;
+    height: 800px;
+    /* background-color: purple; */
+
+    margin: 20px 0;
+}
+
+.sp_img {
+    grid-area: img;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sp_img>img {
+    width: auto;
+    height: 70%;
+}
+
+.specialistCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    max-width: 500px;
+    /* background-color: red; */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.sp_card-1 {
+    /* background-color: black; */
+    grid-area: container1;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    padding: 5px;
 }
+
+.sp_card-2 {
+    grid-area: container2;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card--title {
+    font-weight: 700;
+    color: black;
+    font-size: 24px;
+}
+
+.card--icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card--text {
+    text-align: center;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* -----------------------------------------NAV-------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
 
 .color--header {
     background-color: var(--bg-color);
@@ -145,4 +229,65 @@ h4 {
     /* height: 150px !important; */
     bottom: 20px;
     right: 20px;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------MEDIA QUERIES---------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+@media screen and (min-width: 380px) {
+
+    .main {
+        height: calc(100vh - 50px);
+    }
+
+    .main>h1 {
+        font-size: 32px;
+    }
+
+    .main>h3 {
+        font-size: 20px;
+    }
+
+    .specialistSection {
+        grid-template-columns: 100%;
+        grid-template-rows: 30% 3fr 3fr;
+        grid-template-areas:
+            "img"
+            "container1"
+            "container2";
+    }
+
+    .specialistCard {
+        width: 80%;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .main {
+        background-position: center;
+    }
+
+    .specialistSection {
+        height: 500px;
+        grid-template-columns:50% 50%;
+        grid-template-rows: 20px 1fr 1fr 20px;
+        grid-template-areas:
+            " .      ."
+            "img container1"
+            "img container2"
+            ". .";
+    }
+
+    .sp_img>img {
+        width: 70%;
+        height: auto;
+    }
+
+    .specialistCard {
+        width: 80%;
+    }
 }
