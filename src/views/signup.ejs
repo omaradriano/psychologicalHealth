@@ -36,7 +36,11 @@
                 </div> -->
                 <div class="mb-3">
                     <label for="nControl" class="form-label">Numero de control</label>
-                    <input type="text" class="form-control" id="nControl" name="n_control" pattern="[0-9]{8}" required>
+                    <input type="text" class="form-control" id="nControl" name="n_control" pattern="(c|b)?[0-9]{8}" 
+                    <% if(locals.user){ %>
+                    value="<%=locals.user.n_control%>" 
+                    <%}%>
+                    required>
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre completo</label>
@@ -76,6 +80,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Registrarse</button>
             </form>
+            <% if (locals.error) { %>
+                <p style="color: red; margin-top: 20px;"><b><%= locals.error %></b></p>
+            <% } %>
         </div>
 
         <script src="bootstrap.bundle.min.js"></script>

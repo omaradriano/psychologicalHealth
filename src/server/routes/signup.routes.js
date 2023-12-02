@@ -27,28 +27,31 @@ signup.post('/', async (req, res) => {
 
     const data = await User.find({ n_control: n_control })
     // console.log(data)
-    if(data.length !== 0){
-        if(data[0].n_control === parseInt(n_control)){
-            console.log('El usuario ya existe')
-            res.render('signup.ejs', {error: 'El usuario ya existe'});
-            return
+    try {
+        if(data.length !== 0){
+            if(data[0].n_control === parseInt(n_control)){
+                throw new Error('El usuario ya existe')
+            }
         }
+        const newUser = new User({
+            email: `l${n_control}@chihuahua2.tecnm.mx`, //Únicamente hay existencia de correos institucionales
+            n_control: n_control,
+            name: name,
+            tel: tel,
+            career: career,
+            age: age,
+            password: password,
+        });
+    
+        console.log('Usuario registrado')
+        newUser.save();
+        res.redirect('/');
+    } catch (err) {
+        res.render('signup.ejs', {error: err.message, user: renderData});
     }
     
     //Si llegamos aquí, significa que el usuario no existe y las contraseñas coinciden
-    const newUser = new User({
-        email: `l${n_control}@chihuahua2.tecnm.mx`, //Únicamente hay existencia de correos institucionales
-        n_control: n_control,
-        name: name,
-        tel: tel,
-        career: career,
-        age: age,
-        password: password,
-    });
-
-    console.log('Usuario registrado')
-    newUser.save();
-    res.redirect('/');
+    
 })
 
 export default signup

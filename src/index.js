@@ -75,11 +75,14 @@ app.use('/login', login)
 app.use('/forum', forum)
 //APPOINTMENTS
 app.use('/appointments', appointments)
+//ABOUT
+app.use('/about', appointments)
 
 //Static files
 app.use('/', express.static(path.join(__dirname, 'css'))); //Call css
 app.use('/', express.static(path.join(__dirname, 'bootstrap'))); //Call bootstrap
 app.use('/', express.static(path.join(__dirname, 'imgs'))); //Carpeta de imágenes
+app.use('/', express.static(path.join(__dirname, 'scripts'))); //Carpeta de scripts
 
 //Run server
 app.listen(port, () => {

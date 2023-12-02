@@ -22,18 +22,20 @@ login.post('/', async (req, res) => { // /login
         // Buscar usuario por número de control
         const user = await User.find({ n_control: n_control });
 
-        if (user.length > 0 && user[0].password === password) {
-            // El usuario existe y la contraseña es correcta
-            req.session.user = user
-            console.log('Sesion registrada');
-            res.redirect('/'); // Ajusta según tu ruta deseada después de iniciar sesión
-        } else {
-            // El usuario no existe o la contraseña es incorrecta
-            res.render('login.ejs', { error: 'Credenciales incorrectas. Intentar de nuevo' });
+        if(user.length === 0){
+            throw new Error('No hay un usuario existente')
         }
-    } catch (error) {
-        console.error('Error al iniciar sesión:', error);
-        res.status(500).send('Error interno del servidor');
+        if(user[0].password !== password){
+            throw new Error('Contraseña incorrecta')
+        }else{
+        req.session.user = user
+        console.log('Sesion registrada');
+        res.redirect('/'); // Redireccion a root
+        }
+    } catch (err) {
+        console.log(err)
+        res.render('login.ejs', { error: err.message });
+        // res.status(500).send('Error interno del servidor');
     }
 });
 

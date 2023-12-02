@@ -1,5 +1,4 @@
 <div class="card text-center mb-3 post">
-
     <% if(post.mode === 'need'){ %>
         <div class="card-header bg-danger">
 
@@ -7,9 +6,9 @@
         <div class="card-header bg-success">
     <% } %>
         <% if(post.anonym !== true){ %>
-            <p class="mb-0"><b><%= post.owner %> dice</b></p>
+            <p class="mb-0"><b><%= post.owner %> dice:</b></p>
         <% } else { %>
-            <p class="mb-0"><b>Anónimo dice</b></p>
+            <p class="mb-0"><b>Anónimo dice:</b></p>
         <% } %>
     </div>
     <div class="card-body">
