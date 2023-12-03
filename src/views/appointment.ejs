@@ -15,11 +15,32 @@
     <!-- HEADER -->
     <%- include('include/header.ejs', {userdata: locals.user}) %>
 
+    
     <div class="container-fluid">
-
+        <h1 style="align-self: center;">Agendar una cita</h1>
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">¿Como te podemos ayudar?</label>
+              <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+              <div id="emailHelp" class="form-text">Danos un poco de contexto para poder darte una mejor atencion</div>
+            </div>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Elige un especialista</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            <div class="mb-3 form-check">
+              <input type="date" class="form-check-input" id="selectDate">
+              <!-- <label class="form-check-label" for="selectDate">Check me out</label> -->
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
     </div>
 
+    <script src="appointments.script.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>

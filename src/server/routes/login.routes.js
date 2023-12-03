@@ -34,7 +34,7 @@ login.post('/', async (req, res) => { // /login
         }
     } catch (err) {
         console.log(err)
-        res.render('login.ejs', { error: err.message });
+        res.render('login.ejs', { error: err.message   });
         // res.status(500).send('Error interno del servidor');
     }
 });

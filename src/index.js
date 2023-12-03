@@ -10,6 +10,7 @@ import signup from './server/routes/signup.routes.js';
 import login from './server/routes/login.routes.js';
 import forum from './server/routes/forum.routes.js';
 import appointments from './server/routes/appointments.routes.js';
+import about from './server/routes/about.routes.js';
 
 //Importar dotenv para variables de entorno
 import dotenv from 'dotenv'
@@ -76,7 +77,7 @@ app.use('/forum', forum)
 //APPOINTMENTS
 app.use('/appointments', appointments)
 //ABOUT
-app.use('/about', appointments)
+app.use('/about', about)
 
 //Static files
 app.use('/', express.static(path.join(__dirname, 'css'))); //Call css
