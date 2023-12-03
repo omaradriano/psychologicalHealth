@@ -14,9 +14,9 @@ forum.get('/', async (req, res) => {
 
     try {
         const posts = await Post.find({})
-        // console.log(posts)
         if (req.session.user) {
             const data = req.session.user[0]
+            // console.log(data)
             res.render('forum.ejs', { user: data, posts: posts })
         } else {
             console.log('No hay una sesion activa')
@@ -29,7 +29,6 @@ forum.get('/', async (req, res) => {
 
 forum.post('/post', async (req, res) => {
 
-    // console.log(req.body)
     const { title, description, anonym, mode } = req.body
 
     try {
@@ -52,6 +51,13 @@ forum.post('/post', async (req, res) => {
         console.log(error)
     }
     // res.send('Se ha publicado un post')
+})
+
+forum.get('/delete/:_id', async (req, res) => {
+    const {_id} = req.params
+    console.log(req.params._id)
+    await Post.deleteOne({_id: _id})
+    res.redirect('/forum')
 })
 
 export default forum

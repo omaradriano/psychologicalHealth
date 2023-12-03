@@ -1,14 +1,15 @@
 import mongoose from "mongoose";
 
-const postSchema = new mongoose.Schema({
-    title: String,
+const appointmentSchema = new mongoose.Schema({
     description: String,
     date: Date, //Fecha de publicacion
-    owner: String, //Owner 
+    patient: String, //Owner 
+    n_control: Number, 
     tel: Number,
-    
+    specialist: String
+
 });
 
-const Post = mongoose.model('posts', postSchema);
+const Appointment = mongoose.model('appointments', appointmentSchema);
 
-export default Post
+export default Appointment

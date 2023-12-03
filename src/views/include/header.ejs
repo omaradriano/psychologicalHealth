@@ -17,7 +17,7 @@
                             Más
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/appointments">Agendar una cita</a></li>
+                            <li><a class="dropdown-item" href="/appointment">Agendar una cita</a></li>
                             <li><a class="dropdown-item" href="#">Recursos de orientación</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -25,6 +25,11 @@
                             <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
                         </ul>
                     </li>
+                    <%if(locals.user.role === "mentor" || locals.user.role === "admin"){ %>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/appointment/list">Citas</a>
+                        </li>
+                    <%}%>
                 <% }else{ %>
                     <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="/signup">Registro</a>

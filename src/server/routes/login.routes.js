@@ -17,7 +17,7 @@ login.get('/', (_req, res) => {
 
 login.post('/', async (req, res) => { // /login
     const { n_control, password } = req.body;
-
+    console.log(req.body)
     try {
         // Buscar usuario por número de control
         const user = await User.find({ n_control: n_control });

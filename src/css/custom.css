@@ -3,7 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
-    text-decoration: none;
+    text-decoration: none !important;
+    list-style: none;
 
 }
 
@@ -50,6 +51,17 @@ h4 {
     z-index: 1;
     right: 10px;
     top: 60px;
+}
+
+
+.btn--deletePost{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: orange;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
 }
 
 .post {

@@ -1,4 +1,8 @@
 <div class="card text-center mb-3 post">
+    <%if(locals.user.role === "mentor" || locals.user.role === "admin"){ %>
+        <!-- <p><%= locals.user.role%></p> -->
+        <a class="btn--deletePost" href="/forum/delete/<%= post._id%>">X</a>
+    <%}%>
     <% if(post.mode === 'need'){ %>
         <div class="card-header bg-danger">
 
@@ -19,6 +23,6 @@
     </div>
     <div class="card-footer text-body-secondary">
         <!-- Muestra la fecha del post, podrías necesitar formatearla según tus necesidades -->
-        <p><%= post.date.getHours() %>:<%= post.date.getMinutes() %>-<%= post.date.getDate() %>/<%= post.date.getMonth() %></p>
+        <p><%= post.date.getDate().toString().padStart(2, '0') %>/<%= post.date.getMonth().toString().padStart(2, '0') %> a las <%= post.date.getHours().toString().padStart(2, '0') %>:<%= post.date.getMinutes().toString().padStart(2, '0') %></p>
     </div>
 </div>
