@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="custom.css">
     <title>Bisonterapia | Iniciar sesion</title>
 </head>
-<body>
+<body id="login">
     <!-- HEADER -->
     <%- include('include/header.ejs')  %>
     
     <div class="form needs-validation" novalidate>
-        <form action="/login" method="post">
+        <form action="/login" method="post" class="text-center">
             <div class="mb-3">
                 <label for="nControl" class="form-label">Numero de control</label>
                 <input type="number" class="form-control" id="nControl" name="n_control" pattern="[0-9]{8}" required>
@@ -23,7 +23,7 @@
                 <label for="pass" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="pass" required name="password">
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
         </form>
         <% if (locals.error) { %>
             <p style="color: red; margin-top: 20px;"><b><%= locals.error %></b></p>

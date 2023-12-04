@@ -11,7 +11,7 @@
     <title>Bisonterapia | Registro</title>
 </head>
 
-<body>
+<body id="registro">
 
     <!-- HEADER -->
     <%- include('include/header.ejs') %>
@@ -34,7 +34,7 @@
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required name="email" pattern="^l(b|c)?[0-9]{8}@chihuahua2.tecnm.mx">
                     <div id="emailHelp" class="form-text">No compartiremos tus datos con nadie mas. :)</div>
                 </div> -->
-                <div class="mb-3">
+                <div class="mb-3  text-center">
                     <label for="nControl" class="form-label">Numero de control</label>
                     <input type="text" class="form-control" id="nControl" name="n_control" pattern="(c|b)?[0-9]{8}" 
                     <% if(locals.user){ %>
@@ -42,15 +42,15 @@
                     <%}%>
                     required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3  text-center">
                     <label for="name" class="form-label">Nombre completo</label>
                     <input type="text" class="form-control" id="name" required name="name">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3  text-center">
                     <label for="tel" class="form-label">Teléfono</label>
                     <input type="tel" class="form-control" id="tel" required name="tel">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3  text-center">
                     <label for="career" class="form-label">Carrera</label>
                     <select class="form-select" aria-label="Default select example" id="career" required name="career">
                         <option selected>Selecciona tu carrera</option>
@@ -64,21 +64,25 @@
                         <option value="Licenciatura en administración">Licenciatura en administración</option>
                     </select>
                 </div>
-                <div class="mb-3">
+
+                <div class="mb-3 text-center">
                     <label for="age" class="form-label">Edad</label>
                     <input type="number" class="form-control" id="age" required name="age">
                 </div>
-                <div class="mb-3">
+                
+
+                <div  class="mb-3 text-center">
                     <label for="pass" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="pass" required name="password"
                     pattern="^(?=.*[0-9])(?=.*[A-Z]).{8,}$">
                     <div class="form-text">Almenos 8 caracteres, una mayúscula y un dígito</div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-center">
                     <label for="repeatPass" class="form-label">Confirma contraseña</label>
                     <input type="password" class="form-control" id="repeatPass" required name="repeatPass">
                 </div>
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <div class="text-center"> 
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
             </form>
             <% if (locals.error) { %>
                 <p style="color: red; margin-top: 20px;"><b><%= locals.error %></b></p>

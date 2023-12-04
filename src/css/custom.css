@@ -152,6 +152,7 @@ h4 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-right: 10rem;
 }
 
 .sp_card-2 {
@@ -161,6 +162,7 @@ h4 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-right: 10rem;
 }
 
 .card--title {
@@ -177,6 +179,9 @@ h4 {
 
 .card--text {
     text-align: center;
+}
+.bg-custom-light {
+    background-color: #84caeb; 
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -209,8 +214,50 @@ h4 {
     max-width: 520px;
     min-width: 300px;
     width: 90%;
+    background: linear-gradient(to right, #84caeb, rgb(88, 137, 192));
+}
+#registro{
+    background-image: url('terapia2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* -----------------------------------------No sé donde poner------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+#login{
+    background-image: url('terapia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#cita{
+    background-image: url('azul.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#agendadas{
+    background-image: url('morado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#acerca{
+    background-image: url('morado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.sobre-nosotros {
+    margin-bottom: 20px; 
 }
 
+.img-fluid {
+    max-height: 100%;
+}
 /* ----------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------- */
 /* -----------------------------------------FORO-------------------------------------------- */

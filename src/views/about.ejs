@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,47 @@
     <link rel="stylesheet" href="custom.css">
     <title>Bisonterapia | Citas Agendadas</title>
 </head>
-<body>
-    <%- include('include/header.ejs', {userdata: locals.user})  %>
+
+<body id="acerca">
+    <%- include('include/header.ejs', {userdata: locals.user}) %>
+
+    <header>
+        <section class="text-center texto-header p-5">
+            <h1>¿Necesitas ayuda?</h1>
+            <h2>¡Puedes contar con nosotros!</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg>
+        </div>
+        <main class="container mt-5">
+            <section class="contenedor sobre-nosotros">
+                <h2 class="titulo text-center">Nuestros servicios</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="terapia3.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contenido-texto">
+                            <h3><span></span>Los mejores especialistas</h3>
+                            <p>En Bisonterapia, contamos con un equipo de especialistas altamente calificados 
+                                y comprometidos a proporcionar el mejor cuidado para tu bienestar. Nos dedicamos 
+                                a ofrecer soluciones personalizadas para satisfacer tus necesidades y brindarte el apoyo que mereces.</p>
+                            <h3><span></span>Grupos dedicados</h3>
+                            <p>Enfocamos nuestros esfuerzos en crear grupos de apoyo dedicados a tu atención. 
+                                Trabajamos juntos, con empatía y comprensión, para garantizar que recibas el 
+                                respaldo necesario en tu camino hacia el bienestar emocional y mental. En Bisonterapia, 
+                                no estás solo/a; estamos aquí para ayudarte a cada paso del camino.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </header>
 
     <script src="bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

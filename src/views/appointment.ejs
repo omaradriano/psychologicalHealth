@@ -11,40 +11,48 @@
     <title>Bisonterapia | Appointments</title>
 </head>
 
-<body>
+<body id="cita">
     <!-- HEADER -->
     <%- include('include/header.ejs', {userdata: locals.user}) %>
 
-    
-    <div class="container-sm">
-        <h1 style="align-self: center;">Agendar una cita</h1>
+    <div class="container mt-5">
+        <h1 class="text-center">Agendar una cita</h1>
         <form action="/appointment" method="post">
             <div class="mb-3">
-              <label for="descriptionarea" class="form-label">¿Como te podemos ayudar?</label>
-              <textarea type="email" class="form-control" id="descriptionarea" aria-describedby="descriptionhelp" name="description" required></textarea>
-              <div id="descriptionhelp" class="form-text">Danos un poco de contexto para poder darte una mejor atencion</div>
+                <label for="descriptionarea" class="form-label">¿Cómo te podemos ayudar?</label>
+                <textarea class="form-control" id="descriptionarea" aria-describedby="descriptionhelp" name="description"
+                    required></textarea>
+                <div id="descriptionhelp" class="form-text">Danos un poco de contexto para poder darte una mejor
+                    atención</div>
             </div>
-            <select class="form-select" aria-label="Default select example" name="specialist" required>
+            <select class="form-select mb-3" aria-label="Default select example" name="specialist" required>
                 <option selected>Elige un especialista</option>
                 <% if (Array.isArray(locals.mentors)) { %>
-                  <% locals.mentors.forEach(mentor => { %>
-                    <option value="<%= mentor.name %>"><%= mentor.name %></option>
-                  <% }); %>
+                <% locals.mentors.forEach(mentor => { %>
+                <option value="<%= mentor.name %>"><%= mentor.name %></option>
+                <% }); %>
                 <% } %>
-              </select>
-            <div class="mb-3 form-check row">
-              <input type="date" id="selectDate" name="appointmentDate" required>
-              <input type="time" id="selectHour" name="appointmentHour" step="3600" required>
-              <!-- <label class="form-check-label" for="selectDate">Check me out</label> -->
+            </select>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="selectDate" class="form-label">Fecha</label>
+                    <input type="date" class="form-control" id="selectDate" name="appointmentDate" required>
+                </div>
+                <div class="col-6">
+                    <label for="selectHour" class="form-label">Hora</label>
+                    <input type="time" class="form-control" id="selectHour" name="appointmentHour" step="3600" required>
+                </div>
             </div>
-            <div id="extranote" class="form-text">Usaremos tu numero de telefono por cualquier aviso</div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <div id="extranote" class="form-text  text-center">Usaremos tu número de teléfono por cualquier aviso</div>
+            <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-primary">Agendar</button>
+          </div>
+        </form>
     </div>
 
     <script src="appointments.script.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
-    
+
 </body>
 
 </html>
