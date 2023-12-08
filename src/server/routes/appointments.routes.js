@@ -25,8 +25,6 @@ appointments.get('/', async (req, res) => {
 appointments.post('/', async (req, res) => {
     console.log(req.body)
     const { description, specialist, appointmentDate, appointmentHour } = req.body
-    console.log(appointmentHour)
-    console.log(appointmentDate)
     try {
         if (req.session.user) {
             const appointment = new Appointment({
@@ -52,12 +50,11 @@ appointments.post('/', async (req, res) => {
 })
 
 appointments.get('/list', async (req, res) => {
-    const appointments = await Appointment.find({})
-    console.log(appointments)
-
+    
     if (req.session.user) {
+        const appointments = await Appointment.find({specialist: req.session.user[0].name})
         const data = req.session.user[0]
-        res.render('listAppointments.ejs', { user: data})
+        res.render('listAppointments.ejs', { user: data, appointments: appointments})
     } else {
         res.render('listAppointments.ejs')
     }

@@ -1,7 +1,9 @@
 <div class="card text-center mb-3 post">
-    <%if(locals.user.role === "mentor" || locals.user.role === "admin"){ %>
-        <!-- <p><%= locals.user.role%></p> -->
-        <a class="btn--deletePost" href="/forum/delete/<%= post._id%>">X</a>
+    <%if(locals.user){%>
+        <%if(locals.user.role === "mentor" || locals.user.role === "admin"){ %>
+            <!-- <p><%= locals.user.role%></p> -->
+            <a class="btn--deletePost" href="/forum/delete/<%= post._id%>">X</a>
+        <%}%>
     <%}%>
     <% if(post.mode === 'need'){ %>
         <div class="card-header bg-danger">

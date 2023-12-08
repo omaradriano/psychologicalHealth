@@ -1,0 +1,13 @@
+<div class="card mb-3">
+    <div class="card-header bg-tertiary">
+        <%= locals.appointment.patient%> - <%= locals.appointment.n_control%>
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">Special title treatment</h5> -->
+        <p class="card-text"><%= locals.appointment.description %></p>
+        <p class="card-text">Agendado para el <b><%=locals.appointment.date.getUTCDay()%>/<%=locals.appointment.date.getUTCMonth()%> a las <%= locals.appointment.date.getUTCHours() %>:00</b></p>
+        <div class="d-flex justify-content-end">
+            <a href="#" class="btn btn-primary align-self-end">Responder cita</a>
+        </div>
+    </div>
+</div>

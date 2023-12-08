@@ -12,6 +12,16 @@
 <body>
     <%- include('include/header.ejs', {userdata: locals.user})  %>
 
+    <div class="container-sm py-4">
+        <% if(Array.isArray(locals.appointments) && locals.appointments.length > 0) { %>
+            <% locals.appointments.forEach(appointment => { %>
+              <%- include('include/card.ejs', { appointment: appointment }) %>
+            <% }); %>
+          <% } else { %>
+            <p>No hay publicaciones disponibles.</p>
+          <% } %>
+    </div>
+
     <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -26,7 +26,6 @@ app.use(morgan('dev'))
 //SESSION
 app.use(session({
     // Se recomienda cambiar en cada entorno
-    // https://parzibyte.me/blog/2020/06/02/sesiones-node-express-js/#Configurar_uso_de_sesion
     secret: '123',
     saveUninitialized: true,
     resave: true,
@@ -65,6 +64,16 @@ app.get('/logout', (req, res) => {
                 res.redirect('/');
             }
         });
+    }
+})
+
+app.get('/resources', (req, res) => {
+    if (req.session.user) {
+        const data = req.session.user[0]
+        res.render('resources.ejs', { user: data })
+    } else {
+        console.log('No hay una sesion activa')
+        res.render('resources.ejs')
     }
 })
 
